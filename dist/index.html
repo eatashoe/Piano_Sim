@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PianoSim</title>
+    <script src="https://kit.fontawesome.com/9a564042d0.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/main.css">
+    
+</head>
+<body>
+    <header> 
+        <div class="volCtrl">
+            <i class="fas fa-angle-up"></i>
+            <span class="fa-layers">
+                <i class="fas fa-volume-up fa-2x"></i>
+                <i class="fas fa-ban fa-2x" style="color:tomato"></i>     
+                <i class="fas fa-volume-down fa-2x"></i>
+                <i class="fas fa-volume-off fa-2x"></i>  
+                <img class="volume-medium"src="img/volume-up-solid.svg">         
+            </span>
+            <i class="fas fa-angle-down"></i>
+        </div>
+    </header>
+    <div class="keys">
+        <div class="key q" data-key="81">    </div>
+        <div class="key w" data-key="87">    </div>
+        <div class="key e" data-key="69">    </div>
+        <div class="key r" data-key="82">    </div>
+        <div class="key t" data-key="84">    </div>
+        <div class="key y" data-key="89">    </div>
+        <div class="key u" data-key="85">    </div>
+        <div class="key i" data-key="73">    </div>
+        <div class="key o" data-key="79">    </div>
+        <div class="key p" data-key="80">    </div>
+    </div>
+    
+    <audio data-key="81" src="sounds/28-PedalOffForte1Close.flac"></audio>
+    <audio data-key="87" src="sounds/30-PedalOffForte1Close.flac"></audio>
+    <audio data-key="69" src="sounds/32-PedalOffForte1Close.flac"></audio>
+    <audio data-key="82" src="sounds/33-PedalOffForte1Close.flac"></audio>
+    <audio data-key="84" src="sounds/35-PedalOffForte1Close.flac"></audio>
+    <audio data-key="89" src="sounds/37-PedalOffForte1Close.flac"></audio>
+    <audio data-key="85" src="sounds/39-PedalOffForte1Close.flac"></audio>
+    <audio data-key="73" src="sounds/40-PedalOffForte1Close.flac"></audio>
+    <audio data-key="79" src="sounds/42-PedalOffForte1Close.flac"></audio>
+    <audio data-key="80" src="sounds/44-PedalOffForte1Close.flac"></audio>
+</body>
+<script src="js/main.js"></script>
+</html>

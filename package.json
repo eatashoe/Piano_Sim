@@ -1,0 +1,14 @@
+{
+  "name": "piano_sim",
+  "version": "1.0.0",
+  "description": "piano simulation",
+  "main": "index.js",
+  "scripts": {
+    "sass": "node-sass -w scss/ -o dist/css --recursive"
+  },
+  "author": "Winston Gong",
+  "license": "MIT",
+  "dependencies": {
+    "node-sass": "^4.13.0"
+  }
+}
