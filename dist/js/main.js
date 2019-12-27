@@ -24,6 +24,11 @@ const volMute = document.querySelector('.fa-ban');
 const volLouder = document.querySelector('.fa-volume-down');
 const volMax = document.querySelector('.fa-volume-up');
 const volMid = document.querySelector('.volume-medium');
+const volume = document.querySelector('.fa-layers');
+
+const media = document.querySelector('.record');
+const play = document.querySelector('.fa-play-circle');
+const record = document.querySelector('.fa-dot-circle');
 
 audio.volume = 1;
 //pressing the keys 
@@ -44,7 +49,7 @@ window.addEventListener('keyup', function(e){
     k.classList.remove('playing');
 });
 
-    
+//play piano using mouse
  key1.addEventListener('click', function (){
     key1.classList.add('playing');
     key1.classList.add('left');
@@ -138,7 +143,7 @@ window.addEventListener('keyup', function(e){
     }, 500);
  });
 
-
+//volume controller
 volMute.classList.add('mute');
 volLouder.classList.add('mute');
 volZero.classList.add('mute');
@@ -202,5 +207,74 @@ volUp.addEventListener('click', function (){
     }
     
 });
+
+let mute = false;
+window.addEventListener('keydown', function(e){
+    if(e.keyCode === 77 && !mute){
+        volMute.classList.remove('mute');
+        volLouder.classList.add('mute');
+        volZero.classList.remove('mute');
+        volMid.classList.add('mute');
+        volMax.classList.add('mute');
+        audio.volume = 0;
+        audio.forEach((element) => element.volume = 0);
+        mute = true;
+    }
+    else if(e.keyCode === 77 && mute){
+        volMute.classList.add('mute');
+        volLouder.classList.add('mute');
+        volZero.classList.add('mute');
+        volMid.classList.add('mute');
+        volMax.classList.remove('mute');
+        audio.volume = 1;
+        audio.forEach((element) => element.volume = 1);
+        mute = false;
+    }
+});
+
+volume.addEventListener('click', function(e){
+    if(!mute){
+        volMute.classList.remove('mute');
+        volLouder.classList.add('mute');
+        volZero.classList.remove('mute');
+        volMid.classList.add('mute');
+        volMax.classList.add('mute');
+        audio.volume = 0;
+        audio.forEach((element) => element.volume = 0);
+        mute = true;
+    }
+    else if(mute){
+        volMute.classList.add('mute');
+        volLouder.classList.add('mute');
+        volZero.classList.add('mute');
+        volMid.classList.add('mute');
+        volMax.classList.remove('mute');
+        audio.volume = 1;
+        audio.forEach((element) => element.volume = 1);
+        mute = false;
+    }
+    
+});
+
+
+
+//recorder
+let clicked = false;
+record.addEventListener('click', function (){
+    if(!clicked){
+        record.style.color = "red";
+        record.style.transform = "scale(1.05)";
+        record.style.background = "radial-gradient(red 10px, transparent 30%, transparent 50%)";
+        record.classList.add('ticker');
+        clicked = true;
+    }else{
+        record.style.color = "black";
+        record.style.transform = "scale(1.0)";
+        record.style.background = "radial-gradient(transparent 10px, transparent 30%, transparent 50%)";
+        record.classList.remove('ticker');
+        clicked = false;
+    }
+});
+
 
 

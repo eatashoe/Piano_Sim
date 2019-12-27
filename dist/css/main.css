@@ -8,16 +8,22 @@ html, body {
   width: 100%;
   overflow: hidden;
   justify-content: center;
+  align-content: center;
   background: pink; }
 
 header {
   align-self: center;
-  width: 95vw;
-  height: 35%;
+  width: 95vh;
+  height: 45%;
   color: white;
-  display: flex;
-  justify-content: flex-end; }
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background: radial-gradient(ellipse closest-corner at 29.5% 60%, black, black 100%, black 80%, transparent), linear-gradient(pink 55%, black 45%);
+  border-top-left-radius: 30%;
+  border-top-right-radius: 70%;
+  display: block; }
   header .volCtrl {
+    float: right;
     border-radius: 10px;
     display: grid;
     background: black;
@@ -52,21 +58,52 @@ header {
         visibility: hidden; }
       header .volCtrl .fa-layers .fa-ban {
         z-index: 2; }
+  header .record {
+    margin-right: 20px;
+    float: right;
+    background: linear-gradient(to right, black 50%, white 50% 100%);
+    border-radius: 10px;
+    height: 50px;
+    width: 70px; }
+    header .record .fa-dot-circle {
+      transition: color .5s ease-out;
+      margin-top: 8.8px;
+      color: black; }
+      header .record .fa-dot-circle:hover {
+        transform: scale(0.95);
+        color: red !important; }
+    header .record .ticker {
+      animation-name: tick;
+      animation-iteration-count: infinite;
+      animation-duration: 3s; }
+    header .record .fa-play-circle {
+      color: white; }
   header .shake {
     animation-name: no;
     animation-duration: .2s; }
 
 .keys {
   display: flex;
-  height: 40%; }
+  height: 35%;
+  margin-left: 10vh;
+  margin-right: 10vh;
+  border-radius: 10px;
+  border-top: solid 11px black;
+  border-left: solid 11px black;
+  border-right: solid 11px black; }
 
 .key {
+  text-align: center;
+  color: white;
   background: white;
   border: solid black 1px;
-  width: 9.5vw;
+  width: 9vh;
   height: 100%;
   box-shadow: 0 2.8px 2px black;
-  border-radius: 5px; }
+  border-radius: 10px; }
+  .key:hover {
+    transition: color 1s ease-out;
+    color: pink !important; }
 
 .playing {
   transition: all 2sec;
@@ -88,3 +125,46 @@ header {
     transform: rotate(-10deg); }
   100% {
     transform: rotate(10deg); } }
+
+@keyframes tick {
+  0% {
+    background: radial-gradient(red 10px, transparent 30%, transparent 50%); }
+  10% {
+    background: radial-gradient(rgba(255, 0, 0, 0.9) 10px, transparent 30%, transparent 50%); }
+  20% {
+    background: radial-gradient(rgba(255, 0, 0, 0.8) 10px, transparent 30%, transparent 50%); }
+  30% {
+    background: radial-gradient(rgba(255, 0, 0, 0.7) 10px, transparent 30%, transparent 50%); }
+  40% {
+    background: radial-gradient(rgba(255, 0, 0, 0.6) 10px, transparent 30%, transparent 50%); }
+  50% {
+    background: radial-gradient(rgba(255, 0, 0, 0.5) 10px, transparent 30%, transparent 50%); }
+  60% {
+    background: radial-gradient(rgba(255, 0, 0, 0.4) 10px, transparent 30%, transparent 50%); }
+  70% {
+    background: radial-gradient(rgba(255, 0, 0, 0.5) 10px, transparent 30%, transparent 50%); }
+  80% {
+    background: radial-gradient(rgba(255, 0, 0, 0.6) 10px, transparent 30%, transparent 50%); }
+  90% {
+    background: radial-gradient(rgba(255, 0, 0, 0.7) 10px, transparent 30%, transparent 50%); }
+  95% {
+    background: radial-gradient(rgba(255, 0, 0, 0.8) 10px, transparent 30%, transparent 50%); }
+  98% {
+    background: radial-gradient(rgba(255, 0, 0, 0.9) 10px, transparent 30%, transparent 50%); }
+  100% {
+    background: radial-gradient(red 10px, transparent 30%, transparent 50%); } }
+
+@media screen and (max-width: 768px) {
+  header {
+    width: 95vw; }
+  .key {
+    width: 9vw; } }
+
+@media screen and (max-width: 500px) {
+  header {
+    width: 85vw; }
+  .key {
+    width: 8vw;
+    border-radius: 5px; }
+  .keys {
+    height: 30%; } }
