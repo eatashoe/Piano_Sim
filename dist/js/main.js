@@ -52,7 +52,6 @@ window.addEventListener('keyup', function(e){
 //play piano using mouse
  key1.addEventListener('click', function (){
     key1.classList.add('playing');
-    key1.classList.add('left');
     audio[0].load();
     audio[0].play();
      
@@ -134,7 +133,6 @@ window.addEventListener('keyup', function(e){
  });
  key10.addEventListener('click', function (){
     key10.classList.add('playing');
-    key10.classList.add('right');
     audio[9].load();
     audio[9].play();
      
