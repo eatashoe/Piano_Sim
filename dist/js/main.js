@@ -27,8 +27,50 @@ const volMid = document.querySelector('.volume-medium');
 const volume = document.querySelector('.fa-layers');
 
 const media = document.querySelector('.record');
+const player = document.querySelector('.fa-stack');
 const play = document.querySelector('.fa-play-circle');
+const unplay = document.querySelector('.fa-pause-circle');
 const record = document.querySelector('.fa-dot-circle');
+
+
+let audioCtx = new AudioContext();
+let s = audioCtx.createMediaStreamDestination();
+let a = audioCtx.createMediaElementSource(audio[0]);
+let b = audioCtx.createMediaElementSource(audio[1]);
+let c = audioCtx.createMediaElementSource(audio[2]);
+let d = audioCtx.createMediaElementSource(audio[3]);
+let e = audioCtx.createMediaElementSource(audio[4]);
+let f = audioCtx.createMediaElementSource(audio[5]);
+let g = audioCtx.createMediaElementSource(audio[6]);
+let h = audioCtx.createMediaElementSource(audio[7]);
+let i = audioCtx.createMediaElementSource(audio[8]);
+let j = audioCtx.createMediaElementSource(audio[9]);
+
+a.connect(audioCtx.destination);
+b.connect(audioCtx.destination);
+c.connect(audioCtx.destination);
+d.connect(audioCtx.destination);
+e.connect(audioCtx.destination);
+f.connect(audioCtx.destination);
+g.connect(audioCtx.destination);
+h.connect(audioCtx.destination);
+i.connect(audioCtx.destination);
+j.connect(audioCtx.destination);
+
+a.connect(s);
+b.connect(s);
+c.connect(s);
+d.connect(s);
+e.connect(s);
+f.connect(s);
+g.connect(s);
+h.connect(s);
+i.connect(s);
+j.connect(s);
+
+let mediaRecorder = new MediaRecorder(s.stream);
+
+
 
 audio.volume = 1;
 //pressing the keys 
@@ -265,14 +307,94 @@ record.addEventListener('click', function (){
         record.style.background = "radial-gradient(red 10px, transparent 30%, transparent 50%)";
         record.classList.add('ticker');
         clicked = true;
+        
+        startRecord();
+        
     }else{
         record.style.color = "black";
         record.style.transform = "scale(1.0)";
         record.style.background = "radial-gradient(transparent 10px, transparent 30%, transparent 50%)";
         record.classList.remove('ticker');
         clicked = false;
+        
+        mediaRecorder.stop();
+        window.console.log("ending recording...");
     }
 });
+
+//player
+let playing = false;
+player.addEventListener('click', function (){
+    if(!playing){
+        play.classList.add('rotate');
+        unplay.classList.add('unrotate');
+        audio[10].play();
+        
+        if(audio[10].duration > 0){
+            setTimeout(function() {
+                play.classList.remove('rotate');
+                unplay.classList.remove('unrotate');
+                playing = false;
+            }, audio[10].duration*1000);
+        }
+        playing = true;
+    }else{
+        play.classList.remove('rotate');
+        unplay.classList.remove('unrotate');
+        audio[10].pause();
+        
+        playing = false;
+    }
+
+});
+
+
+
+/*
+mediaRecorder.ondataavailable = handleDataAvailable;
+
+function handleDataAvailable(event){
+    if(event.data.size > 0){
+        window.console.log('data available');
+        chunks.push(event.data);
+        window.console.log(chunks);
+    }
+}
+
+mediaRecorder.onstop = function(event) {
+    
+    let blob = new Blob(chunks, { 'type' : 'audio/webm'});
+    let recorded = URL.createObjectURL(blob);
+    
+    
+    window.console.log("Successfully recorded " + blob.size + " bytes of " + blob.type + " media.");
+};
+*/
+
+
+function startRecord() {
+    mediaRecorder.start();
+    window.console.log("recording started");
+    let chunks = [];
+
+    mediaRecorder.ondataavailable = function(event){
+        if(event.data.size > 0){
+            window.console.log('data available');
+            chunks.push(event.data);
+            window.console.log(chunks);
+        }
+    };
+    
+    mediaRecorder.onstop = function(event) {
+    
+        let blob = new Blob(chunks, { 'type' : 'audio/webm'});
+        let recorded = URL.createObjectURL(blob);
+        audio[10].src = recorded;
+        
+        window.console.log("Successfully recorded " + blob.size + " bytes of " + blob.type + " media.");
+    };
+}
+
 
 
 

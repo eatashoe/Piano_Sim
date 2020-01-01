@@ -5,6 +5,7 @@ html, body {
   height: 100%;
   width: 100%;
   overflow: hidden;
+  font-family: Roboto, sans-serif;
   background: pink;
   display: flex;
   align-items: center;
@@ -63,10 +64,12 @@ header {
     background: linear-gradient(to right, black 50%, white 50% 100%);
     border-radius: 10px;
     height: 50px;
-    width: 70px; }
+    width: 70px;
+    display: flex;
+    align-items: center; }
     header .record .fa-dot-circle {
-      transition: color .5s ease-out;
-      margin-top: 8.8px;
+      transition: all .2s ease-out;
+      margin-right: 1px;
       color: black; }
       header .record .fa-dot-circle:hover {
         transform: scale(0.95);
@@ -74,9 +77,23 @@ header {
     header .record .ticker {
       animation-name: tick;
       animation-iteration-count: infinite;
-      animation-duration: 3s; }
+      animation-duration: 2s; }
+    header .record .fa-stack {
+      color: white;
+      margin-right: 2px; }
+    header .record .fa-pause-circle {
+      transition: opacity 1s, transform 1s;
+      transform: rotate(-180deg) scale(0.5);
+      opacity: 0;
+      transition: all .8s; }
     header .record .fa-play-circle {
-      color: white; }
+      transition: opacity 1s, transform 1s; }
+    header .record .rotate {
+      transform: rotate(180deg) scale(0.5);
+      opacity: 0; }
+    header .record .unrotate {
+      transform: rotate(0deg) scale(1);
+      opacity: 1; }
   header .shake {
     animation-name: no;
     animation-duration: .2s; }
@@ -85,7 +102,7 @@ header {
   display: flex;
   width: 400px;
   height: 12%;
-  margin-bottom: 18%;
+  margin-bottom: 12%;
   margin-left: 10vh;
   margin-right: 10vh;
   border-radius: 10px;
@@ -103,7 +120,7 @@ header {
   box-shadow: 0 2.8px 2px black;
   border-radius: 4px; }
   .key:hover {
-    transition: color 1s ease-out;
+    transition: color .5s ease-out;
     color: pink !important; }
 
 .playing {
@@ -126,28 +143,76 @@ header {
 @keyframes tick {
   0% {
     background: radial-gradient(red 10px, transparent 30%, transparent 50%); }
+  5% {
+    background: radial-gradient(rgba(255, 0, 0, 0.95) 10px, transparent 30%, transparent 50%); }
   10% {
     background: radial-gradient(rgba(255, 0, 0, 0.9) 10px, transparent 30%, transparent 50%); }
+  15% {
+    background: radial-gradient(rgba(255, 0, 0, 0.85) 10px, transparent 30%, transparent 50%); }
   20% {
     background: radial-gradient(rgba(255, 0, 0, 0.8) 10px, transparent 30%, transparent 50%); }
+  25% {
+    background: radial-gradient(rgba(255, 0, 0, 0.75) 10px, transparent 30%, transparent 50%); }
   30% {
     background: radial-gradient(rgba(255, 0, 0, 0.7) 10px, transparent 30%, transparent 50%); }
+  35% {
+    background: radial-gradient(rgba(255, 0, 0, 0.65) 10px, transparent 30%, transparent 50%); }
   40% {
     background: radial-gradient(rgba(255, 0, 0, 0.6) 10px, transparent 30%, transparent 50%); }
+  45% {
+    background: radial-gradient(rgba(255, 0, 0, 0.55) 10px, transparent 30%, transparent 50%); }
   50% {
     background: radial-gradient(rgba(255, 0, 0, 0.5) 10px, transparent 30%, transparent 50%); }
+  55% {
+    background: radial-gradient(rgba(255, 0, 0, 0.45) 10px, transparent 30%, transparent 50%); }
   60% {
     background: radial-gradient(rgba(255, 0, 0, 0.4) 10px, transparent 30%, transparent 50%); }
+  61% {
+    background: radial-gradient(rgba(255, 0, 0, 0.35) 10px, transparent 30%, transparent 50%); }
+  62% {
+    background: radial-gradient(rgba(255, 0, 0, 0.3) 10px, transparent 30%, transparent 50%); }
+  63% {
+    background: radial-gradient(rgba(255, 0, 0, 0.25) 10px, transparent 30%, transparent 50%); }
+  64% {
+    background: radial-gradient(rgba(255, 0, 0, 0.2) 10px, transparent 30%, transparent 50%); }
+  65% {
+    background: radial-gradient(rgba(255, 0, 0, 0.15) 10px, transparent 30%, transparent 50%); }
+  66% {
+    background: radial-gradient(rgba(255, 0, 0, 0.1) 10px, transparent 30%, transparent 50%); }
+  67% {
+    background: radial-gradient(rgba(255, 0, 0, 0) 10px, transparent 30%, transparent 50%); }
+  68% {
+    background: radial-gradient(rgba(255, 0, 0, 0.1) 10px, transparent 30%, transparent 50%); }
+  69% {
+    background: radial-gradient(rgba(255, 0, 0, 0.15) 10px, transparent 30%, transparent 50%); }
   70% {
+    background: radial-gradient(rgba(255, 0, 0, 0.2) 10px, transparent 30%, transparent 50%); }
+  71% {
+    background: radial-gradient(rgba(255, 0, 0, 0.25) 10px, transparent 30%, transparent 50%); }
+  72% {
+    background: radial-gradient(rgba(255, 0, 0, 0.3) 10px, transparent 30%, transparent 50%); }
+  73% {
+    background: radial-gradient(rgba(255, 0, 0, 0.35) 10px, transparent 30%, transparent 50%); }
+  74% {
+    background: radial-gradient(rgba(255, 0, 0, 0.4) 10px, transparent 30%, transparent 50%); }
+  75% {
+    background: radial-gradient(rgba(255, 0, 0, 0.45) 10px, transparent 30%, transparent 50%); }
+  76% {
     background: radial-gradient(rgba(255, 0, 0, 0.5) 10px, transparent 30%, transparent 50%); }
+  77% {
+    background: radial-gradient(rgba(255, 0, 0, 0.55) 10px, transparent 30%, transparent 50%); }
   80% {
     background: radial-gradient(rgba(255, 0, 0, 0.6) 10px, transparent 30%, transparent 50%); }
+  85% {
+    background: radial-gradient(rgba(255, 0, 0, 0.65) 10px, transparent 30%, transparent 50%); }
   90% {
     background: radial-gradient(rgba(255, 0, 0, 0.7) 10px, transparent 30%, transparent 50%); }
   95% {
+    background: radial-gradient(rgba(255, 0, 0, 0.75) 10px, transparent 30%, transparent 50%); }
+  96% {
     background: radial-gradient(rgba(255, 0, 0, 0.8) 10px, transparent 30%, transparent 50%); }
   98% {
-    background: radial-gradient(rgba(255, 0, 0, 0.9) 10px, transparent 30%, transparent 50%); }
+    background: radial-gradient(rgba(255, 0, 0, 0.85) 10px, transparent 30%, transparent 50%); }
   100% {
     background: radial-gradient(red 10px, transparent 30%, transparent 50%); } }
 
