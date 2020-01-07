@@ -31,7 +31,7 @@ const player = document.querySelector('.fa-stack');
 const play = document.querySelector('.fa-play-circle');
 const unplay = document.querySelector('.fa-pause-circle');
 const record = document.querySelector('.fa-dot-circle');
-
+const save = document.querySelector('.saveLink');
 
 let audioCtx = new AudioContext();
 let s = audioCtx.createMediaStreamDestination();
@@ -70,9 +70,12 @@ j.connect(s);
 
 let mediaRecorder = new MediaRecorder(s.stream);
 
+if(mediaRecorder.state === "suspended"){
+    window.console.log('resumed bruv');
+    mediaRecorder.resume();
+}
 
-
-audio.volume = 1;
+audio.volume = 0;
 //pressing the keys 
 window.addEventListener('keydown', function(e){
     
@@ -184,10 +187,14 @@ window.addEventListener('keyup', function(e){
  });
 
 //volume controller
-volMute.classList.add('mute');
+volMute.classList.remove('mute');
 volLouder.classList.add('mute');
-volZero.classList.add('mute');
+volZero.classList.remove('mute');
 volMid.classList.add('mute');
+volMax.classList.add('mute');
+
+audio.forEach((element) => element.volume = 0);
+
 
 volDown.addEventListener('click', function (){
     if(audio.volume > 0){
@@ -230,6 +237,7 @@ volUp.addEventListener('click', function (){
         }, 1000);
     }
     if(audio.volume === 0.25){
+        audioCtx.resume();
         volMute.classList.add('mute');
         volZero.classList.remove('mute');
     }
@@ -248,7 +256,7 @@ volUp.addEventListener('click', function (){
     
 });
 
-let mute = false;
+let mute = true;
 window.addEventListener('keydown', function(e){
     if(e.keyCode === 77 && !mute){
         volMute.classList.remove('mute');
@@ -325,51 +333,40 @@ record.addEventListener('click', function (){
 //player
 let playing = false;
 player.addEventListener('click', function (){
-    if(!playing){
+    
+    if(!playing && audio[10].duration > 0){
         play.classList.add('rotate');
         unplay.classList.add('unrotate');
+        window.console.log("PLAYING");
+        audio[10].load();
         audio[10].play();
         
-        if(audio[10].duration > 0){
-            setTimeout(function() {
-                play.classList.remove('rotate');
-                unplay.classList.remove('unrotate');
-                playing = false;
-            }, audio[10].duration*1000);
-        }
+        audio[10].addEventListener('ended', function(){
+            audio[10].currentTime = 0;
+            play.classList.remove('rotate');
+            unplay.classList.remove('unrotate');
+            playing = false;
+        });
+        
         playing = true;
-    }else{
+    }else if (playing && audio[10].duration > 0){
         play.classList.remove('rotate');
         unplay.classList.remove('unrotate');
+        window.console.log("STOPPING");
         audio[10].pause();
+        audio[10].currentTime = 0;
         
         playing = false;
+    }else{
+        play.classList.add('shake2');
+        setTimeout(function (){
+            play.classList.remove('shake2');
+        }, 1000);
     }
 
 });
 
 
-
-/*
-mediaRecorder.ondataavailable = handleDataAvailable;
-
-function handleDataAvailable(event){
-    if(event.data.size > 0){
-        window.console.log('data available');
-        chunks.push(event.data);
-        window.console.log(chunks);
-    }
-}
-
-mediaRecorder.onstop = function(event) {
-    
-    let blob = new Blob(chunks, { 'type' : 'audio/webm'});
-    let recorded = URL.createObjectURL(blob);
-    
-    
-    window.console.log("Successfully recorded " + blob.size + " bytes of " + blob.type + " media.");
-};
-*/
 
 
 function startRecord() {
@@ -386,15 +383,22 @@ function startRecord() {
     };
     
     mediaRecorder.onstop = function(event) {
-    
-        let blob = new Blob(chunks, { 'type' : 'audio/webm'});
+        
+        let blob = new Blob(chunks, { 'type' : 'audio/mpeg-3'});
         let recorded = URL.createObjectURL(blob);
+        save.href = recorded;
+        save.download = 'recording.mp3';
         audio[10].src = recorded;
         
         window.console.log("Successfully recorded " + blob.size + " bytes of " + blob.type + " media.");
     };
 }
 
-
-
-
+save.addEventListener('click', function(){
+    if(save.href.length === 0){
+        save.style.color= 'red';
+        setTimeout(function (){
+            save.style.color= 'white';
+        }, 200);
+    }
+});
