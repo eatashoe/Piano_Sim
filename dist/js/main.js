@@ -70,15 +70,11 @@ j.connect(s);
 
 let mediaRecorder = new MediaRecorder(s.stream);
 
-if(mediaRecorder.state === "suspended"){
-    window.console.log('resumed bruv');
-    mediaRecorder.resume();
-}
 
 audio.volume = 0;
 //pressing the keys 
 window.addEventListener('keydown', function(e){
-    
+    audioCtx.resume();
     const a = document.querySelector(`audio[data-key="${e.keyCode}"]`);
     const k = document.querySelector(`.key[data-key="${e.keyCode}"]`);
     if(!a) return;
