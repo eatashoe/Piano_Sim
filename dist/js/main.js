@@ -363,8 +363,6 @@ player.addEventListener('click', function (){
 });
 
 
-
-
 function startRecord() {
     mediaRecorder.start();
     window.console.log("recording started");
@@ -382,10 +380,31 @@ function startRecord() {
         
         let blob = new Blob(chunks, { 'type' : 'audio/mpeg-3'});
         let recorded = URL.createObjectURL(blob);
-        save.href = recorded;
+        
+        save.href = audio[10].src;
         save.download = 'recording.mp3';
         audio[10].src = recorded;
+        /*
+        //-------------------
+        const ffmpeg = require('ffmpeg');
         
+        try {
+            let process = new ffmpeg(recorded);
+            process.then(function (audio) {
+                // Callback mode
+                video.fnExtractSoundToMP3(audio[10].src, function (error, file) {
+                    if (!error)
+                        console.log('Audio file: ' + file);
+                });
+            }, function (err) {
+                console.log('Error: ' + err);
+            });
+        } catch (e) {
+            console.log(e.code);
+            console.log(e.msg);
+        }
+        //-------------------*/
+
         window.console.log("Successfully recorded " + blob.size + " bytes of " + blob.type + " media.");
     };
 }

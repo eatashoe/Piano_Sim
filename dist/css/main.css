@@ -20,11 +20,11 @@ header {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   margin-top: 15px;
-  background: radial-gradient(circle 120px at 30% 50%, black 100%, transparent), radial-gradient(circle 200px at 109.5% 44.5%, pink 100%, transparent), linear-gradient(pink 50%, black 30%);
-  background: -moz-radial-gradient(circle 120px at 30% 50%, black 100%, transparent), -moz-radial-gradient(circle 200px at 109.5% 44.5%, pink 100%, transparent), -moz-linear-gradient(pink 50%, black 30%);
-  background: -o-radial-gradient(circle 120px at 30% 50%, black 100%, transparent), -o-radial-gradient(circle 200px at 109.5% 44.5%, pink 100%, transparent), -o-linear-gradient(pink 50%, black 30%);
-  background: -ms-radial-gradient(circle 120px at 30% 50%, black 100%, transparent), -ms-radial-gradient(circle 200px at 109.5% 44.5%, pink 100%, transparent), -ms-linear-gradient(pink 50%, black 30%);
-  background: -webkit-radial-gradient(circle 120px at 30% 50%, black 100%, transparent), -webkit-radial-gradient(circle 200px at 109.5% 44.5%, pink 100%, transparent), -webkit-linear-gradient(pink 50%, black 30%);
+  background: radial-gradient(circle 122px at 30% 50%, black 99.99%, transparent), radial-gradient(circle 200px at 109.5% 44.5%, pink 99.99%, transparent), linear-gradient(pink 50%, black 30%);
+  background: -moz-radial-gradient(circle 122px at 30% 50%, black 99.99%, transparent), -moz-radial-gradient(circle 200px at 109.5% 44.5%, pink 99.99%, transparent), -moz-linear-gradient(pink 50%, black 30%);
+  background: -o-radial-gradient(circle 122px at 30% 50%, black 99.99%, transparent), -o-radial-gradient(circle 200px at 109.5% 44.5%, pink 99.99%, transparent), -o-linear-gradient(pink 50%, black 30%);
+  background: -ms-radial-gradient(circle 122px at 30% 50%, black 99.99%, transparent), -ms-radial-gradient(circle 200px at 109.5% 44.5%, pink 99.99%, transparent), -ms-linear-gradient(pink 50%, black 30%);
+  background: -webkit-radial-gradient(circle 122px at 30% 50%, black 99.99%, transparent), -webkit-radial-gradient(circle 200px at 109.5% 44.5%, pink 99.99%, transparent), -webkit-linear-gradient(pink 50%, black 30%);
   display: block; }
   header .volCtrl {
     float: right;
@@ -262,10 +262,10 @@ header {
   header {
     margin: none;
     width: 80vw;
-    background: radial-gradient(circle 25.2vw at 31% 35%, black 100%, transparent), radial-gradient(circle 35vw at 104.5% 25%, pink 100%, transparent), linear-gradient(pink 30%, black 30%);
-    background: -moz-radial-gradient(circle 25.2vw at 31% 35%, black 100%, transparent), -moz-radial-gradient(circle 35vw at 104.5% 25%, pink 100%, transparent), -moz-linear-gradient(pink 30%, black 30%);
-    background: -o-radial-gradient(circle 25.2vw at 31% 35%, black 100%, transparent), -o-radial-gradient(circle 35vw at 104.5% 25%, pink 100%, transparent), -o-linear-gradient(pink 30%, black 30%);
-    background: -ms-radial-gradient(circle 25.2vw at 31% 35%, black 100%, transparent), -ms-radial-gradient(circle 35vw at 104.5% 25%, pink 100%, transparent), -ms-linear-gradient(pink 30%, black 30%);
-    background: -webkit-radial-gradient(circle 25.2vw at 31% 35%, black 100%, transparent), -webkit-radial-gradient(circle 35vw at 104.5% 25%, pink 100%, transparent), -webkit-linear-gradient(pink 30%, black 30%); }
+    background: radial-gradient(circle 25.2vw at 31% 35%, black 99.99%, transparent), radial-gradient(circle 35vw at 104.5% 25%, pink 99.99%, transparent), linear-gradient(pink 30%, black 30%);
+    background: -moz-radial-gradient(circle 25.2vw at 31% 35%, black 99.99%, transparent), -moz-radial-gradient(circle 35vw at 104.5% 25%, pink 99.99%, transparent), -moz-linear-gradient(pink 30%, black 30%);
+    background: -o-radial-gradient(circle 25.2vw at 31% 35%, black 99.99%, transparent), -o-radial-gradient(circle 35vw at 104.5% 25%, pink 99.99%, transparent), -o-linear-gradient(pink 30%, black 30%);
+    background: -ms-radial-gradient(circle 25.2vw at 31% 35%, black 99.99%, transparent), -ms-radial-gradient(circle 35vw at 104.5% 25%, pink 99.99%, transparent), -ms-linear-gradient(pink 30%, black 30%);
+    background: -webkit-radial-gradient(circle 25.2vw at 31% 35%, black 99.99%, transparent), -webkit-radial-gradient(circle 35vw at 104.5% 25%, pink 99.99%, transparent), -webkit-linear-gradient(pink 30%, black 30%); }
   .keys {
     width: 80vw; } }
