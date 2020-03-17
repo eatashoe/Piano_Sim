@@ -300,4 +300,6 @@ header {
     background: -ms-radial-gradient(circle 25.2vw at 31% 35%, black 99.99%, transparent), -ms-radial-gradient(circle 35vw at 104.5% 25%, pink 99.99%, transparent), -ms-linear-gradient(pink 30%, black 30%);
     background: -webkit-radial-gradient(circle 25.2vw at 31% 35%, black 99.99%, transparent), -webkit-radial-gradient(circle 35vw at 104.5% 25%, pink 99.99%, transparent), -webkit-linear-gradient(pink 30%, black 30%); }
   .keys {
-    width: 80vw; } }
+    width: 80vw; }
+  .bKeys {
+    width: 75vw; } }
