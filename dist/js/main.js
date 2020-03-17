@@ -13,6 +13,14 @@ const key8 = document.querySelector('.i');//73
 const key9 = document.querySelector('.o');//79
 const key10 = document.querySelector('.p');//80
 
+const bkey2 = document.querySelector('.a');
+const bkey3 = document.querySelector('.s');
+const bkey5 = document.querySelector('.d');
+const bkey6 = document.querySelector('.f');
+const bkey7 = document.querySelector('.g');
+const bkey9 = document.querySelector('.h');
+const bkey0 = document.querySelector('.j');
+
 const audio = document.querySelectorAll('audio');
 
 const volCtrl = document.querySelector('.volCtrl');
@@ -33,7 +41,17 @@ const unplay = document.querySelector('.fa-pause-circle');
 const record = document.querySelector('.fa-dot-circle');
 const save = document.querySelector('.saveLink');
 
-let audioCtx = new AudioContext();
+
+var AudioContext = window.AudioContext || window.webkitAudioContext || false;
+
+let audioCtx;
+
+if(AudioContext){
+    audioCtx = new AudioContext();
+}else{
+    window.alert("Sorry, the Web Audio Api is not supported by your browser. Please, consider upgrading or using a different browser to use this site.");
+}
+
 let s = audioCtx.createMediaStreamDestination();
 let a = audioCtx.createMediaElementSource(audio[0]);
 let b = audioCtx.createMediaElementSource(audio[1]);
@@ -80,14 +98,26 @@ window.addEventListener('keydown', function(e){
     if(!a) return;
     a.load();
     a.play();
-    k.classList.add('playing');
+    if(!k){
+        const b = document.querySelector(`.b[data-key="${e.keyCode}"]`); 
+        b.classList.add('playing2');
+    }
+    else{
+        k.classList.add('playing');
+    }
+
 });
 
 //when you release the keys
 window.addEventListener('keyup', function(e){
     const k = document.querySelector(`.key[data-key="${e.keyCode}"]`);
-    if(!k) return;
-    k.classList.remove('playing');
+    if(!k) {
+        const b = document.querySelector(`.b[data-key="${e.keyCode}"]`); 
+        b.classList.remove('playing2');
+    }
+    else{
+        k.classList.remove('playing');
+    }
 });
 
 //play piano using mouse
@@ -179,6 +209,69 @@ window.addEventListener('keyup', function(e){
      
     setTimeout(function(){
         key10.classList.remove('playing');
+    }, 500);
+ });
+ bkey2.addEventListener('click', function (){
+    bkey2.classList.add('playing2');
+    audio[11].load();
+    audio[11].play();
+     
+    setTimeout(function(){
+        bkey2.classList.remove('playing2');
+    }, 500);
+ });
+ bkey3.addEventListener('click', function (){
+    bkey3.classList.add('playing2');
+    audio[12].load();
+    audio[12].play();
+     
+    setTimeout(function(){
+        bkey3.classList.remove('playing2');
+    }, 500);
+ });
+ bkey5.addEventListener('click', function (){
+    bkey5.classList.add('playing2');
+    audio[13].load();
+    audio[13].play();
+     
+    setTimeout(function(){
+        bkey5.classList.remove('playing2');
+    }, 500);
+ });
+ bkey6.addEventListener('click', function (){
+    bkey6.classList.add('playing');
+    audio[14].load();
+    audio[14].play();
+     
+    setTimeout(function(){
+        bkey6.classList.remove('playing');
+    }, 500);
+ });
+ bkey7.addEventListener('click', function (){
+    bkey7.classList.add('playing');
+    audio[15].load();
+    audio[15].play();
+     
+    setTimeout(function(){
+        bkey7.classList.remove('playing');
+    }, 500);
+ });
+ bkey9.addEventListener('click', function (){
+    bkey9.classList.add('playing');
+    audio[16].load();
+    audio[16].play();
+     
+    setTimeout(function(){
+        bkey9.classList.remove('playing');
+    }, 500);
+ });
+ bkey0.addEventListener('click', function (){
+    bkey0.classList.add('playing');
+    audio[17].load();
+    audio[17].play();
+     
+    setTimeout(function(){
+        bkey0.classList.remove('playing');
     }, 500);
  });
 
