@@ -63,6 +63,13 @@ let g = audioCtx.createMediaElementSource(audio[6]);
 let h = audioCtx.createMediaElementSource(audio[7]);
 let i = audioCtx.createMediaElementSource(audio[8]);
 let j = audioCtx.createMediaElementSource(audio[9]);
+let k = audioCtx.createMediaElementSource(audio[11]);
+let l = audioCtx.createMediaElementSource(audio[12]);
+let m = audioCtx.createMediaElementSource(audio[13]);
+let n = audioCtx.createMediaElementSource(audio[14]);
+let o = audioCtx.createMediaElementSource(audio[15]);
+let p = audioCtx.createMediaElementSource(audio[16]);
+let q = audioCtx.createMediaElementSource(audio[17]);
 
 a.connect(audioCtx.destination);
 b.connect(audioCtx.destination);
@@ -74,6 +81,13 @@ g.connect(audioCtx.destination);
 h.connect(audioCtx.destination);
 i.connect(audioCtx.destination);
 j.connect(audioCtx.destination);
+k.connect(audioCtx.destination);
+l.connect(audioCtx.destination);
+m.connect(audioCtx.destination);
+n.connect(audioCtx.destination);
+o.connect(audioCtx.destination);
+p.connect(audioCtx.destination);
+q.connect(audioCtx.destination);
 
 a.connect(s);
 b.connect(s);
@@ -85,6 +99,13 @@ g.connect(s);
 h.connect(s);
 i.connect(s);
 j.connect(s);
+k.connect(s);
+l.connect(s);
+m.connect(s);
+n.connect(s);
+o.connect(s);
+p.connect(s);
+q.connect(s);
 
 let mediaRecorder = new MediaRecorder(s.stream);
 
