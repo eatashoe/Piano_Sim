@@ -9,7 +9,6 @@
   "author": "Winston Gong",
   "license": "MIT",
   "dependencies": {
-    "ffmpeg": "0.0.4",
     "node-sass": "^4.13.1"
   }
 }

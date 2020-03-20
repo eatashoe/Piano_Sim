@@ -496,33 +496,12 @@ function startRecord() {
     
     mediaRecorder.onstop = function(event) {
         
-        let blob = new Blob(chunks, { 'type' : 'audio/mpeg-3'});
+        let blob = new Blob(chunks, { 'type' : 'audio/ogg'});
         let recorded = URL.createObjectURL(blob);
-        
-        save.href = audio[10].src;
-        save.download = 'recording.mp3';
         audio[10].src = recorded;
-        /*
-        //-------------------
-        const ffmpeg = require('ffmpeg');
+        save.href = audio[10].src;
+        save.download = 'recording.ogg';
         
-        try {
-            let process = new ffmpeg(recorded);
-            process.then(function (audio) {
-                // Callback mode
-                video.fnExtractSoundToMP3(audio[10].src, function (error, file) {
-                    if (!error)
-                        console.log('Audio file: ' + file);
-                });
-            }, function (err) {
-                console.log('Error: ' + err);
-            });
-        } catch (e) {
-            console.log(e.code);
-            console.log(e.msg);
-        }
-        //-------------------*/
-
         window.console.log("Successfully recorded " + blob.size + " bytes of " + blob.type + " media.");
     };
 }
