@@ -41,6 +41,10 @@ const unplay = document.querySelector('.fa-pause-circle');
 const record = document.querySelector('.fa-dot-circle');
 const save = document.querySelector('.saveLink');
 
+const helpBtn = document.querySelector('.helpBtn');
+const bKeys = document.querySelectorAll(".b");
+const Keys = document.querySelectorAll(".key");
+const overlay = document.querySelector('.overlay');
 
 var AudioContext = window.AudioContext || window.webkitAudioContext || false;
 
@@ -531,3 +535,31 @@ save.addEventListener('click', function(){
         }, 200);
     }
 });
+
+let show = false;
+helpBtn.addEventListener('click', function(){
+    
+    if(!show){
+        Keys.forEach((element) => element.style.color = "black");
+        bKeys.forEach((element) => element.style.color = "white");
+        helpBtn.style.background = "white";
+        helpBtn.style.color = "black";
+        helpBtn.innerHTML = "-";
+        overlay.style.display = "inherit";
+        show = true;
+    }
+    else if(show){
+        Keys.forEach((element) => element.style.color = "white");
+        bKeys.forEach((element) => element.style.color = "black");
+        helpBtn.style.background = "black";
+        helpBtn.style.color = "white";
+        helpBtn.innerHTML = "+";
+        overlay.style.display = "none";
+        show = false;
+        
+    }
+});
+
+
+
+
